@@ -22,8 +22,8 @@ class IndexPage extends Component {
     axios
       .get('https://api.foursquare.com/v2/venues/search', {
         params: {
-          client_id: process.env.CLIENT_ID,
-          client_secret: process.env.CLIENT_SECRET,
+          client_id: 'D32TVT41QVFYQGK1C4HO3LRJZYV55NFJDITRRYTCGTZBWP11',
+          client_secret: 'CGW5VBYPW5WMFMRCCAPDEHQ3WUTUB441O0NVKUTY41NSOH0X',
           query: term,
           near: 'Rosemead, CA',
           v: '20180329',
