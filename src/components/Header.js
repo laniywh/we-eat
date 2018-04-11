@@ -1,11 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import styles from '../styles/Header.module.scss'
+
 const Header = () => (
   <div
     style={{
-      background: 'rebeccapurple',
       marginBottom: '1.45rem',
+      color: '#fff',
     }}
   >
     <div
@@ -15,6 +17,12 @@ const Header = () => (
         padding: '1.45rem 1.0875rem',
       }}
     >
+      <ul className={styles.nav}>
+        <li>
+          <Link to="/lists">Lists</Link>
+        </li>
+        <li>Login</li>
+      </ul>
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"

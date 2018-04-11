@@ -1,24 +1,20 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-// import yelp from 'yelp-fusion'
 import axios from 'axios'
 
 import SearchBar from '../components/SearchBar'
-import RestaurantList from '../components/RestaurantList'
-
-// const API_KEY =
-//   'LgVjRoBtYK6cN3QxGV6XBysMRDpFnUi4G_uyWo0pJjDaiW4OzgQKEi5zwR_-PjXXFVbJeWQsFpM6zSUh3mRlEY22GRHJtXlGzwTk8g2cDFsMw-EkT75we_OMi4caWnYx'
+import VenueList from '../components/VenueList'
 
 class IndexPage extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      restaurants: [],
+      venues: [],
     }
   }
 
-  restaurantSearch(term) {
+  venueSearch(term) {
     axios
       .get('https://api.foursquare.com/v2/venues/search', {
         params: {
@@ -32,7 +28,7 @@ class IndexPage extends Component {
       .then(response => {
         console.log(this)
         this.setState({
-          restaurants: response.data.response.venues,
+          venues: response.data.response.venues,
         })
       })
       .catch(error => console.log(error))
@@ -41,8 +37,8 @@ class IndexPage extends Component {
   render() {
     return (
       <div>
-        <SearchBar onSearchTermSubmit={this.restaurantSearch.bind(this)} />
-        <RestaurantList restaurants={this.state.restaurants} />
+        <SearchBar onSearchTermSubmit={this.venueSearch.bind(this)} />
+        <VenueList venues={this.state.venues} />
       </div>
     )
   }

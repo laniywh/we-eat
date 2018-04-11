@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import styles from '../styles/SearchBar.module.scss'
 
-class Searchbar extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props)
     this.state = { term: '' }
@@ -10,12 +11,12 @@ class Searchbar extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className={styles.searchBar} onSubmit={this.handleSubmit}>
           <input
             value={this.state.term}
+            placeholder="Search..."
             onChange={event => this.setState({ term: event.target.value })}
           />
-          <input type="submit" value="Search" />
         </form>
       </div>
     )
@@ -23,9 +24,8 @@ class Searchbar extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('submit')
     this.props.onSearchTermSubmit(this.state.term)
   }
 }
 
-export default Searchbar
+export default SearchBar
